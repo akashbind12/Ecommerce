@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+          .nav{
+            height: 50px;
+            background-color: rgb(28, 41, 56);
+            display: flex; 
+            padding: 0 0 0 20px;  
+            border-radius: 10px;  
+        }
+        .left {
+            width: 70%;
+            height: 90%;
+           
+        }
+        .right {
+            width: 30%;
+            height: 90%;
+            display: flex;
+            justify-content: space-around;
+            color: white;
+            margin-top: 15px;
+        }
+        p {
+            color: white;
+
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="left">
+            <p>Reebok</p>
+        </div>
+        <div class="right">
+            <div>
+              <a href="about.html">About</a>
+            </div>
+            <div id="men">Men</div>
+            <div onclick="window.location.href = 'women.html'">Women</div>
+            <div onclick="window.location.href = 'login.html'">Login</div>
+            <div onclick="window.location.href = 'signup.html'">Signup</div>
+                
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.getElementById("men").addEventListener("click",function(){
+          window.location.href = "men.html";
+    });
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart html</title>
+    <style>
+        #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      #flex{
+          display: flex;
+          justify-content: space-around;
+      }
+      h2{
+          margin: auto;
+      }
+    </style>
+</head>
+<body>
+    <h2>My cart</h2>
+    <h3 id="h3"></h3>
+    <button onclick="window.location.href = 'checkout.html'">checkout</button>
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+   var cartarr =  JSON.parse(localStorage.getItem("cartitems"))
+   console.log(cartarr);
+
+   cartarr.map(function(data){
+
+var div = document.createElement("div");
+
+var img = document.createElement("img");
+img.setAttribute("src",data.image_url)
+
+var para = document.createElement("p")
+para.textContent = data.name;
+
+var div2 = document.createElement("div");
+ div2.setAttribute("id", "flex");
+
+var price = document.createElement("p")
+price.textContent = data.price;
+
+var offprice = document.createElement("p")
+offprice.textContent = data.strikedoffprice;
+offprice.style.textDecoration = "line-through";
+
+div2.append(price,offprice)
+
+div.append(img,para,div2)
+
+document.querySelector("#container").append(div)
+
+});
+
+var total1 = cartarr.reduce(function(acc,val){
+    return acc+val.price;
+},0)
+// console.log(total1)
+
+
+var cartarr =  JSON.parse(localStorage.getItem("cartdata"))
+   console.log(cartarr);
+
+   cartarr.map(function(data){
+
+var div = document.createElement("div");
+
+var img = document.createElement("img");
+img.setAttribute("src",data.image_url)
+
+var para = document.createElement("p")
+para.textContent = data.name;
+
+var div2 = document.createElement("div");
+ div2.setAttribute("id", "flex");
+
+var price = document.createElement("p")
+price.textContent = data.price;
+
+var offprice = document.createElement("p")
+offprice.textContent = data.strikedoffprice;
+offprice.style.textDecoration = "line-through";
+
+div2.append(price,offprice)
+
+div.append(img,para,div2)
+
+document.querySelector("#container").append(div)
+
+});
+
+var total = cartarr.reduce(function(acc,val){
+    return acc+val.price;
+},0)
+var total_amount = total+total1 ;
+
+document.querySelector("#h3").textContent = `total amount is ${total_amount} Rs.`
+
+</script>

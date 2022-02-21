@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout page</title>
+    <style>
+      #container{
+          width: 20%;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid white;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      input{
+          width : 100%;
+          margin-top: 30px;
+          height: 20px;
+      }
+      button{
+        width : 100%;
+          margin-top: 30px;
+          height: 20px;
+         
+      }
+      div{
+          text-align: center;
+        
+      }
+     
+    </style>
+</head>
+<body>
+    <div >
+        <h2>checkout page</h2>
+    </div>
+    <div id="container">
+        <input id="name" type="text" placeholder="Enter Name">
+        <input id="card" type="number" placeholder="Enter card Number">
+        <input id="cvv" type="number" placeholder="CVV">
+        <input id="date" type="text" placeholder="Enter Expiry Date">
+     
+        <button onclick="checkout()">pay</button>
+    </div>
+   
+</body>
+</html>
+
+<script>
+    function checkout(){
+        var name = document.querySelector("#name").value;
+        var card = document.querySelector("#card").value;
+        var cvv = document.querySelector("#cvv").value;
+        var date = document.querySelector("#date").value;
+         console.log(name,card,cvv,date);
+
+        if(name=="akash" && card=="4321" && cvv=="123" && date=="12/24"){
+           alert("Payment successfull")
+            window.location.href = "success.html"
+
+        }
+        else{
+            alert("Wrong details")
+        }
+    }
+
+</script>

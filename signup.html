@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <style>
+        #container{
+            width: 20% ;
+            margin: auto;
+            border: 1px solid white;
+            padding: 20px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        button{
+            width: 100%;
+            height: 30px;
+            margin: auto;
+            background-color: #F7DC6F;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+        input{
+            width: 100%;
+        }
+      
+      
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form>
+        <h2>Create Account</h2>
+        <p>Your name</p>
+        <input id="name" type="text" >
+        <p>Mobile number</p>
+        <input id="mblno" type="number">
+        <p>Email(optional)</p>
+        <input id="email" type="text">
+        <p>Password</p>
+        <input id="pass" type="password">
+        <p>password must be at least 6 characters</p>
+        <button>Continue</button>    
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit",formsubmit);
+      var userstack = JSON.parse(localStorage.getItem("userdatabase")) || [];
+    function formsubmit(event){
+        event.preventDefault();
+
+        var name = document.getElementById("name").value
+        var mblno = document.getElementById("mblno").value
+        var email = document.getElementById("email").value
+        var pass = document.getElementById("pass").value
+
+
+        var userdata = {
+            username: name,
+            mobileno: mblno,
+            emailid : email,
+            password: pass,
+        };
+        
+        userstack.push(userdata)
+        // console.log(userstack);
+        localStorage.setItem("userdatabase",JSON.stringify(userstack));
+        alert("signup sucessfull")
+        window.location.href="login.html"
+    }
+      
+</script>
