@@ -18,6 +18,21 @@
       h2{
           margin: auto;
       }
+      #card{
+       margin-top: 20px;
+       border: 1px solid lightgray;
+       text-align: center;
+       padding-bottom: 10px;
+       padding-top: 10px;
+       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     }
+     button{
+       background-color: teal;
+       border-radius: 10px;
+       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+       color: white;
+       padding: 10px 20px 10px 20px;
+     }
     </style>
 </head>
 <body>
@@ -35,6 +50,7 @@
    cartarr.map(function(data){
 
 var div = document.createElement("div");
+div.id ="card";
 
 var img = document.createElement("img");
 img.setAttribute("src",data.image_url)
@@ -46,10 +62,10 @@ var div2 = document.createElement("div");
  div2.setAttribute("id", "flex");
 
 var price = document.createElement("p")
-price.textContent = data.price;
+price.textContent = "₹"+data.price;
 
 var offprice = document.createElement("p")
-offprice.textContent = data.strikedoffprice;
+offprice.textContent = "₹"+ data.strikedoffprice;
 offprice.style.textDecoration = "line-through";
 
 div2.append(price,offprice)
@@ -72,6 +88,7 @@ var cartarr =  JSON.parse(localStorage.getItem("cartdata"))
    cartarr.map(function(data){
 
 var div = document.createElement("div");
+div.id = "card";
 
 var img = document.createElement("img");
 img.setAttribute("src",data.image_url)
@@ -83,10 +100,10 @@ var div2 = document.createElement("div");
  div2.setAttribute("id", "flex");
 
 var price = document.createElement("p")
-price.textContent = data.price;
+price.textContent = "₹"+data.price;
 
 var offprice = document.createElement("p")
-offprice.textContent = data.strikedoffprice;
+offprice.textContent = "₹"+data.strikedoffprice;
 offprice.style.textDecoration = "line-through";
 
 div2.append(price,offprice)

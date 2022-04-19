@@ -13,6 +13,7 @@
             padding: 0 0 0 20px;  
             border-radius: 10px;  
             margin: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
         .left {
             width: 70%;
@@ -27,13 +28,13 @@
             color: white;
             margin-top: 15px;
         }
-        p {
+        /* p {
             color: white;
 
-        }
+        } */
         a{
             text-decoration: none;
-            color: white;
+            /* color: white; */
         }
 
 
@@ -46,6 +47,22 @@
          display: flex;
          justify-content: space-around;
      }
+     #card{
+       margin-top: 20px;
+       border: 1px solid lightgray;
+       text-align: center;
+       padding-bottom: 10px;
+       padding-top: 10px;
+       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     }
+     #butt,select{
+       /* padding: 10px; */
+       background-color: teal;
+       border-radius: 10px;
+       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+       color: white;
+       padding: 10px 20px 10px 20px;
+     }
    </style>
 </head>
 <body>
@@ -54,17 +71,17 @@
         <p>Reebok</p>
     </div>
     <div class="right">
-        <div>
+        <!-- <div>
           <a href="about.html">About</a>
-        </div>
-        <div onclick="window.location.href = 'men.html'">Men</div>
+        </div> -->
+        <div onclick="window.location.href = 'index.html'">Men</div>
         <div onclick="window.location.href = 'women.html'">Women</div>
         <div onclick="window.location.href = 'login.html'">Login</div>
         <div onclick="window.location.href = 'signup.html'">Signup</div>    
     </div>
 </div>
 
-    <button onclick="window.location.href = 'cart.html'">Go to Cart</button>
+    <button id="butt" onclick="window.location.href = 'cart.html'">Go to Cart</button>
     <div id="container"></div>
 </body>
 </html>
@@ -532,6 +549,7 @@
   womensData.map(function(data){
 
 var div = document.createElement("div");
+div.id = "card";
 
 var img = document.createElement("img");
 img.setAttribute("src",data.image_url)
@@ -543,15 +561,16 @@ var div2 = document.createElement("div");
  div2.setAttribute("id", "flex");
 
 var price = document.createElement("p")
-price.textContent = data.price;
+price.textContent = "₹"+data.price;
 
 var offprice = document.createElement("p")
-offprice.textContent = data.strikedoffprice;
+offprice.textContent = "₹"+data.strikedoffprice;
 offprice.style.textDecoration = "line-through";
 
 div2.append(price,offprice)
 
 var btn = document.createElement("button");
+btn.id = "butt"
     btn.textContent = "Add To Cart";
     btn.addEventListener("click",function(){
       addtocart(data)
